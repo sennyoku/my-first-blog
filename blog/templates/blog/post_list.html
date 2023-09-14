@@ -4,17 +4,14 @@
     </head>
     <body>
         <div>
-            <h1><a href="/">Django Blog</h1>
+            <h1><a href="/">Django Blog</a></h1>
         </div>
+        {% for post in posts %}
         <div>
-        <p>published: 14.09.2023, 21:21</p>
-        <h2><a href="">My fitst post</a></h2>
-        <p>Aenean eu leo quem. こんにちは！ よろしくお願いします！</p>
+            <p>published: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-        <div>
-            <p>公開日: 2023/09/14, 21:21</p>
-            <h2><a href="">２番目の投稿</a></h2>
-            <p>こんにちは！ よろしくお願いします！</p>
-        </div>
+    {% endfor %}
     </body>
 </html>
