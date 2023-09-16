@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--h*qof&kplpi9=t-t8x1((*$ir6c8ckdmhciz+wmx=l9+j5yt4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','kojiro.pythonanywhere.com']
 
 
 # Application definition
@@ -126,3 +126,14 @@ STATIC_ROOT = BASE_DIR / 'static'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+from django.core.management.utils import get_random_secret_key
+SECRET_KEY = get_random_secret_key()
+
+try:
+    from .local_settings import *
+except:
+    pass
